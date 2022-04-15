@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-const bookController = require('../controllers/PlantController')
+const plantController = require('../controllers/PlantController')
 const orderController = require('../controllers/OrderController')
 
-router.post('/books', bookController.addBook)
+router.post('/books', plantController.addPlant)
 
-router.get('/books', bookController.getAllBooks)
+router.get('/books', plantController.getAllPlants)
 
-router.get('/book', bookController.getBooks)
+router.get('/book', plantController.getPlants)
 
-router.delete('/books/:bookId', bookController.deleteBook)
+router.delete('/books/:plantId', plantController.deletePlant)
 
 router.post('/orders', orderController.addOrder)
 

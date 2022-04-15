@@ -4,9 +4,9 @@ const addOrder= (req, res) => {
     let newOrder = new OrderModel({
         userEmail: req.body.userEmail,
         orderDate: new Date().toISOString().slice(0, 10),
-        bookName: req.body.bookName,
-        bookAuthor: req.body.bookAuthor,
-        bookPrice: req.body.bookPrice
+        plantName: req.body.plantName,
+        plantAuthor: req.body.plantAuthor,
+        plantPrice: req.body.plantPrice
     })
 
     newOrder.save()

@@ -1,15 +1,15 @@
-const BookModel = require('../models/PlantModel')
+const PlantModel = require('../models/PlantModel')
 
-const addBook = (req, res) => {
+const addPlant = (req, res) => {
     console.log(req.body)
-    let newBook = new BookModel({
-        bookName: req.body.bookName,
-        bookAuthor: req.body.bookAuthor,
-        bookPrice: req.body.bookPrice,
-        bookImage: req.body.bookImage
+    let newPlant = new PlantModel({
+        plantName: req.body.plantName,
+        plantAuthor: req.body.plantAuthor,
+        plantPrice: req.body.plantPrice,
+        plantImage: req.body.plantImage
     })
 
-    newBook.save()
+    newPlant.save()
         .then(result => {
             res.status(201).json({
                 massage: 'Plant Added Successful',
@@ -22,7 +22,7 @@ const addBook = (req, res) => {
 
 }
 
-const getBooks = (req, res) => {
+const getPlants = (req, res) => {
     let name = req.query.name
     console.log(req.query)
 
@@ -31,15 +31,15 @@ const getBooks = (req, res) => {
 }
 
 
-const getAllBooks = (req, res) => {
+const getAllPlants = (req, res) => {
     let name = req.query.name
     console.log(req.query)
     if(name){
-        BookModel.find({bookName: {$regex: name, $options: 'i'}})
-            .then(books => {
+        PlantModel.find({plantName: {$regex: name, $options: 'i'}})
+            .then(plants => {
                 res.status(200).json({
                     massage: 'Some Plants',
-                    books
+                    plants
                 })
             })
             .catch(error => {
@@ -47,11 +47,11 @@ const getAllBooks = (req, res) => {
             })
     }
     else {
-        BookModel.find()
-            .then(books => {
+        PlantModel.find()
+            .then(plants => {
                 res.status(200).json({
                     massage: 'All Plants',
-                    books
+                    plants
                 })
             })
             .catch(error => {
@@ -61,10 +61,10 @@ const getAllBooks = (req, res) => {
 
 }
 
-const deleteBook = (req, res) => {
-    let bookId = req.params.bookId
+const deletePlant = (req, res) => {
+    let plantId = req.params.plantId
 
-    BookModel.findByIdAndRemove(bookId)
+    PlantModel.findByIdAndRemove(plantId)
         .then(result => {
             res.status(200).json({
                 massage: 'Plant Deleted',
@@ -78,9 +78,9 @@ const deleteBook = (req, res) => {
 }
 
 module.exports = {
-    addBook,
-    getAllBooks,
-    deleteBook,
-    getBooks
+    addPlant,
+    getAllPlants,
+    deletePlant,
+    getPlants
 }
 
