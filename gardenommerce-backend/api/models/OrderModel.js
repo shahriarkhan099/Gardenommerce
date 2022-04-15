@@ -9,15 +9,15 @@ const OrderSchema = new Schema({
     orderDate: {
       type: String
     },
-    bookName: {
+    plantName: {
         type: String,
         required: true
     },
-    bookAuthor: {
+    plantAuthor: {
         type: String,
         required: true
     },
-    bookPrice: {
+    plantPrice: {
         type: Number,
         required: true
     }

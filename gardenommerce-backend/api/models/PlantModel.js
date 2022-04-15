@@ -1,25 +1,25 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const BookSchema = new Schema({
-    bookName: {
+const PlantSchema = new Schema({
+    plantName: {
         type: String,
         required: true
     },
-    bookAuthor: {
+    plantType: {
         type: String,
         required: true
     },
-    bookPrice: {
+    plantPrice: {
         type: Number,
         required: true
     },
-    bookImage: {
+    plantImage: {
         type: String
     }
 
 })
 
-const BookModel = mongoose.model('bookModel', BookSchema)
+const PlantModel = mongoose.model('plantModel', PlantSchema)
 
-module.exports = BookModel
+module.exports = PlantModel
